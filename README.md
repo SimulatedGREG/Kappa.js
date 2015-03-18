@@ -11,7 +11,7 @@ To get started include the `kappa.js` file just before the end of your closing `
 
 ```html
         ...
-        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="kappa.js"></script>
     </body>
 </html>
