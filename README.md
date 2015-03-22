@@ -6,17 +6,28 @@ Kappa.js is a simple jQuery Plugin that can easily find text Twitch emotes and r
 ## How does this work?
 Kappa.js is made possible with the use of [Twitch Emotes API v2](http://twitchemotes.com/apidocs). Kappa.js will pull a fresh list of **global emotes** on each browser session. Please note this API is currently in *development*, so features and structure may change without warning.
 
-## How can I use this?
+## How do I get this?
+Kappa.js can be quickly installed from the public bower registry. Just run... 
+```
+bower install kappa.js
+```
+Alternatively, you can simply clone down this repository with...
+```
+git clone https://github.com/SimulatedGREG/Kappa.js.git
+```
+
+## How do I use this?
 To get started include the `kappa.js` file just before the end of your closing `</body>` tag.
 
 ```html
         ...
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
         <script src="kappa.js"></script>
     </body>
 </html>
 ```
-Once included use jQuery to select which elements your want `kappa.js` to apply to.
+Once included use jQuery to select which elements your want `kappa.js` to apply on. `$([selector]).kappa();`
+In this example `kappa.js` will apply to all elements in the DOM once the page is loaded. 
 ```html
         ...
         <script>
