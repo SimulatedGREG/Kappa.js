@@ -58,7 +58,7 @@
 				currentEmoteUrl = currentTemplate.replace('{image_id}', currentEmoteID);
 				target.each(function(index, element){
 					$(element).html(function(index, text) {
-						var re = new RegExp(i, "g");
+						var re = new RegExp('\\b'+i+'\\b', 'g');
 						this.innerHTML = text.replace(re, '<img src="' + currentEmoteUrl + '">');
 					});
 				});
