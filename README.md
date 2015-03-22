@@ -26,7 +26,8 @@ To get started include the `kappa.js` file just before the end of your closing `
     </body>
 </html>
 ```
-Once included use jQuery to select which elements you want `kappa.js` to apply to. `$([selector]).kappa();`
+Once included use jQuery to select which elements your want `kappa.js` to apply in this manner... `$([selector]).kappa([options]);`
+
 In this example `kappa.js` will apply to all elements in the DOM once the page is loaded. 
 ```html
         ...
@@ -38,8 +39,14 @@ In this example `kappa.js` will apply to all elements in the DOM once the page i
     </body>
 </html>
 ```
+And that's it! There's nothing else to do. All text emotes will be replaced with their respective Twitch emoticons. But wait, there's more!
 
-And that's it! There's nothing else to do. All text emotes will be replaced with their respective Twitch emoticons.
+### Options
+As of now, options are limited to only emoticon size. More to come!
+
+| option    | type   | default | description                                                                  |
+|:-----------|:--------|:-------|:------------------------------------------------------------------------------|
+| emoteSize | string | `'small'` | Sets emoticon image size. Can be `'small'`, `'medium'`, or `'large'`. |
 
 ## What's next?
 In the near future I hope to make specific options to support different emoticon sizes and as well support subscriber emoticons.

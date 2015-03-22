@@ -1,0 +1,53 @@
+<h1 id="-kappa-emote-kappa-kappa-js"><img src="http://static-cdn.jtvnw.net/emoticons/v1/25/1.0" alt="Kappa Emote"> Kappa.js</h1>
+<p>Kappa.js is a simple jQuery Plugin that can easily find text Twitch emotes and replace them with their respective emoticons.  </p>
+<h2 id="how-does-this-work-">How does this work?</h2>
+<p>Kappa.js is made possible with the use of <a href="http://twitchemotes.com/apidocs">Twitch Emotes API v2</a>. Kappa.js will pull a fresh list of <strong>global emotes</strong> on each browser session. Please note this API is currently in <em>development</em>, so features and structure may change without warning.</p>
+<h2 id="how-do-i-get-this-">How do I get this?</h2>
+<p>Kappa.js can be quickly installed from the public bower registry. Just run... </p>
+<pre><code>bower install kappa.js
+</code></pre><p>Alternatively, you can simply clone down this repository with...</p>
+<pre><code>git clone https://github.com/SimulatedGREG/Kappa.js.git
+</code></pre><h2 id="how-do-i-use-this-">How do I use this?</h2>
+<p>To get started include the <code>kappa.js</code> file just before the end of your closing <code>&lt;/body&gt;</code> tag.</p>
+<pre><code class="lang-html">        ...
+        &lt;script src=&quot;//code.jquery.com/jquery-1.11.2.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;kappa.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Once included use jQuery to select which elements your want <code>kappa.js</code> to apply in this manner... <code>$([selector]).kappa([options]);</code></p>
+<p>In this example <code>kappa.js</code> will apply to all elements in the DOM once the page is loaded. </p>
+<pre><code class="lang-html">        ...
+        &lt;script&gt;
+            $(function () {
+                $(&#39;*&#39;).kappa();
+            });
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>And that&#39;s it! There&#39;s nothing else to do. All text emotes will be replaced with their respective Twitch emoticons. But wait, there&#39;s more!</p>
+<h3 id="options">Options</h3>
+<p>As of now, options are limited to only emoticon size. More to come!</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">option</th>
+<th style="text-align:left">type</th>
+<th style="text-align:left">default</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">emoteSize</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left"><code>&#39;small&#39;</code></td>
+<td style="text-align:left">Sets emoticon image size. Can be <code>&#39;small&#39;</code>, <code>&#39;medium&#39;</code>, or <code>&#39;large&#39;</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-s-next-">What&#39;s next?</h2>
+<p>In the near future I hope to make specific options to support different emoticon sizes and as well support subscriber emoticons.</p>
+<h4 id="credits">Credits</h4>
+<p><a href="http://twitchemotes.com/apidocs">Twitch Emotes API v2</a><br><em>Emote and badge images are property of <a href="http://www.twitch.tv/">Twitch Interactive</a> and their respective owners.</em></p>

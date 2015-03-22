@@ -1,10 +1,14 @@
 (function($) {
-	$.fn.kappa = function () {
+	$.fn.kappa = function (options) {
 
 		// Init global variables
 		var target = $(this);
 		var API, EMOTES;
 		var TEMPLATE_SMALL, TEMPLATE_MEDIUM, TEMPLATE_LARGE;
+
+		var settings = $.extend({
+			emoteSize: 'small'
+		}, options);
 		
 		// Check for local storage support
 		if(!(typeof(Storage) !== "undefined")) {
@@ -49,10 +53,22 @@
 			insertEmotes();
 		}
 
+		// Determine Template size from options
+		function getSize() {
+			switch(settings.emoteSize) {
+				case 'small':
+					return TEMPLATE_SMALL;
+				case 'medium':
+					return 	TEMPLATE_MEDIUM;
+				case 'large':
+					return TEMPLATE_LARGE;
+			}
+		}
+
 		// Insert Emotes
 		function insertEmotes() {
 			var currentEmoteID;
-			var currentTemplate = TEMPLATE_SMALL;
+			var currentTemplate = getSize();
 			$.each(EMOTES, function(i, val) {
 				currentEmoteID = val.image_id;
 				currentEmoteUrl = currentTemplate.replace('{image_id}', currentEmoteID);
