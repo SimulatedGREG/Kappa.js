@@ -26,7 +26,7 @@ To get started include the `kappa.js` file just before the end of your closing `
     </body>
 </html>
 ```
-Once included use jQuery to select which elements your want `kappa.js` to apply on. `$([selector]).kappa();`
+Once included use jQuery to select which elements you want `kappa.js` to apply to. `$([selector]).kappa();`
 In this example `kappa.js` will apply to all elements in the DOM once the page is loaded. 
 ```html
         ...
