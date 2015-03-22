@@ -49,7 +49,7 @@ As of now, options are limited to only emoticon size. More to come!
 | emoteSize | string | `'small'` | Sets emoticon image size. Can be `'small'`, `'medium'`, or `'large'`. |
 
 ## What's next?
-In the near future I hope to make specific options to support different emoticon sizes and as well support subscriber emoticons.
+In the near future I plan to add support for subscriber emotes and also have an option to apply a custom class to each injected `<img>` tag.
 
 #### Credits
 [Twitch Emotes API v2](http://twitchemotes.com/apidocs)  
