@@ -21,7 +21,7 @@
 						define(sessionStorage.twitchemotesAPI);
 					},
 					error: function() {
-						alert('Connection to Twitch Emotes API v2 has failed.')
+						console.log('Connection to Twitch Emotes API v2 has failed.');
 					}
 				});
 		   	} else {
@@ -36,7 +36,7 @@
 					define(data);
 				},
 				error: function() {
-					alert('Connection to Twitch Emotes API v2 has failed.')
+					console.log('Connection to Twitch Emotes API v2 has failed.');
 				}
 			});
 		}
