@@ -54,3 +54,6 @@ In the near future I plan to add support for subscriber emotes and also have an 
 #### Credits
 [Twitch Emotes API v2](http://twitchemotes.com/apidocs)  
 *Emote and badge images are property of [Twitch Interactive](http://www.twitch.tv/) and their respective owners.*
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/SimulatedGREG/kappa.js/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
