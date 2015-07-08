@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <!-- <link rel="icon" type="image/png" href="http://static-cdn.jtvnw.net/emoticons/v1/25/1.0"/> -->
+  <title>Kappa.js</title>
+
+  <!-- CSS  -->
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <style>
+    ::selection {
+      background-color: #D1C4E9;
+    }
+
+    #index-banner, .page-footer {
+      background-image: url(banner.png);
+      background-position: center;
+      background-size: cover;
+    }
+
+    .page-footer {
+      background-image: url(banner-greyscale.png)!important;
+    }
+
+    .table-of-contents a.active,
+    .table-of-contents a:hover {
+      border-color: #673AB7!important;
+    }
+  </style>
+</head>
+<body>
+  <div class="section no-pad-bot deep-purple" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center white-text"><img srca="http://static-cdn.jtvnw.net/emoticons/v1/25/2.0" alt="kappa emote"> Kappa.js</h1>
+      <div class="row center">
+        <h5 class="header col s12 light white-text">A simple jQuery Plugin that can easily find text Twitch emotes and replace them with their respective emoticons</h5>
+      </div>
+      <div class="row center">
+        <a href="#" id="download-button" class="btn-large waves-effect waves-light grey">Download</a>
+        <a href="https://github.com/simulatedgreg/kappa.js.git" id="repo-link-button" class="btn-large waves-effect waves-light grey">View Repo</a>
+      </div>
+      <br><br>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s3">
+          <ul class="section table-of-contents">
+            <li><a href="#how-does-this-work">How does this work?</a></li>
+            <li><a href="#how-do-i-get-this">How do I get this?</a></li>
+            <li><a href="#how-do-i-use-this">How do I use this?</a></li>
+            <li><a href="#options">Options</a></li>
+            <li><a href="#whats-next">What's next?</a></li>
+          </ul>
+        </div>
+        <div class="col s9">
+          <div id="how-does-this-work" class="section scrollspy">
+            <h3>How does this work?</h3>
+            <p>Kappa.js is made possible with the use of
+              <a class="deep-purple-text" href="https://twitchemotes.com/apidocs">Twitch Emotes API v2</a>.
+              Kappa.js will pull a fresh list of global emotes on each browser
+              session. Please note this API is currently in development, so
+              features and structure may change without warning.</p>
+          </div>
+          <div class="divider"></div>
+          <div id="how-do-i-get-this" class="section scrollspy">
+            <h3>How do I get this?</h3>
+            <p>Kappa.js can be quickly installed from the public bower registry. Just run...</p>
+            <pre><code>bower install kappa.js</code></pre>
+            <p>Alternaticely, you can simple clone down the repository with...</p>
+            <pre><code>git clone https://github.com/SimulatedGREG/Kappa.js.git</code></pre>
+            <p>
+              And for those of you who have no idea what was said above, you can get a direct download <a class="deep-purple-text" href="#">here</a>.
+            </p>
+          </div>
+          <div class="divider"></div>
+          <div id="how-do-i-use-this" class="section scrollspy">
+            <h3>How do I use this?</h3>
+            <p>To get started include the <code>kappa.js</code> file just before the end of your closing </body> tag.</p>
+          <pre><code class="lang-html">        ...
+        <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"//code.jquery.com/jquery-1.11.2.min.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"kappa.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+            <p>Once included use jQuery to select which elements you want <code>kappa.js</code> to apply to in this manner...</p>
+            <pre><code>$([selector]).kappa([options]);</code></pre>
+            <p>In this example <code>kappa.js</code> will apply to all elements in the DOM once the page is loaded.</p>
+            <pre><code class="lang-html">        ...
+        <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+            $(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                $(<span class="hljs-string">'*'</span>).kappa();
+            });
+        </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+          </div>
+          <div id="options" class="section scrollspy">
+            <h4>Options</h4>
+            <p>As of now, options are limited to emoticon size. More to come!</p>
+            <table class="striped">
+              <thead>
+                <tr>
+                  <th style="text-align:left">option</th>
+                  <th style="text-align:left">type</th>
+                  <th style="text-align:left">default</th>
+                  <th style="text-align:left">description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align:left">emoteSize</td>
+                  <td style="text-align:left">string</td>
+                  <td style="text-align:left"><code>'small'</code></td>
+                  <td style="text-align:left">Sets emoticon image size. Can be <code>'small'</code>, <code>'medium'</code>, or <code>'large'</code>.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="divider"></div>
+          <div id="whats-next" class="section scrollspy">
+            <h3>What's next?</h3>
+            <p>In the near future there are plans to add support for subscriber emotes and also have an option to apply a custom class to each inject <code><span class="hljs-tag">&lt;<span class="hljs-title">img</span>&gt;</span></code> tag.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="page-footer grey">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">About</h5>
+          <p class="grey-text text-lighten-4">Kappa.js was originaly built for use on StreamQuotes.com, where users can submit, like, and share quotes within the Twitch/gaming community. Since its first release, Kappa.js has evolved to include more features and options for better customization.</p>
+
+          <h5 class="white-text">Credits</h5>
+          <p class="grey-text text-lighten-4">
+            <a class="deep-purple-text" href="https://twitchemotes.com/apidocs">Twitch Emotes API v2</a><br>
+            Emote and badge images are property of <a class="deep-purple-text" href="http://www.twitch.tv">Twitch Interactive</a> and their respective owners.
+          </p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="grey-text text-lighten-3" href="http://materializecss.com">SimulatedGREG</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
