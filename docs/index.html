@@ -3,11 +3,11 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <!-- <link rel="icon" type="image/png" href="http://static-cdn.jtvnw.net/emoticons/v1/25/1.0"/> -->
+  <link rel="icon" type="image/png" href="http://static-cdn.jtvnw.net/emoticons/v1/25/1.0"/>
   <title>Kappa.js</title>
 
   <!-- CSS  -->
-  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
@@ -30,19 +30,28 @@
     .table-of-contents a:hover {
       border-color: #673AB7!important;
     }
+
+    .material-icons {
+      vertical-align: middle;
+    }
+
+    .kappa img {
+      display: inline-block;
+      margin-bottom: -13px;
+    }
   </style>
 </head>
 <body>
   <div class="section no-pad-bot deep-purple" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center white-text"><img srca="http://static-cdn.jtvnw.net/emoticons/v1/25/2.0" alt="kappa emote"> Kappa.js</h1>
+      <h1 class="header center white-text"><img src="http://static-cdn.jtvnw.net/emoticons/v1/25/2.0" alt="kappa emote"> Kappa.js</h1>
       <div class="row center">
         <h5 class="header col s12 light white-text">A simple jQuery Plugin that can easily find text Twitch emotes and replace them with their respective emoticons</h5>
       </div>
       <div class="row center">
-        <a href="#" id="download-button" class="btn-large waves-effect waves-light grey">Download</a>
-        <a href="https://github.com/simulatedgreg/kappa.js.git" id="repo-link-button" class="btn-large waves-effect waves-light grey">View Repo</a>
+        <a href="#" id="download-button" class="btn-large waves-effect waves-light grey">Download <i class="material-icons">file_download</i></a>
+        <a href="https://github.com/simulatedgreg/kappa.js.git" id="repo-link-button" class="btn-large waves-effect waves-light grey">View Repo <i class="material-icons">link</i></a>
       </div>
       <br><br>
     </div>
@@ -50,6 +59,28 @@
 
 
   <div class="container">
+    <div class="section">
+        <div class="row">
+          <div class="col s6">
+            <h3>Without Kappa.js</h3>
+            <div class="card-panel">
+              <span>
+                Kappa BibleThump HeyGuys Kreygasm
+              </span>
+            </div>
+          </div>
+
+          <div class="col s6">
+            <h3>With Kappa.js</h3>
+            <div class="card-panel">
+              <span class="kappa">
+                Kappa BibleThump HeyGuys Kreygasm
+              </span>
+            </div>
+          </div>
+        </div>
+    </div>
+
     <div class="section">
 
       <!--   Icon Section   -->
@@ -131,7 +162,7 @@
           <div class="divider"></div>
           <div id="whats-next" class="section scrollspy">
             <h3>What's next?</h3>
-            <p>In the near future there are plans to add support for subscriber emotes and also have an option to apply a custom class to each inject <code><span class="hljs-tag">&lt;<span class="hljs-title">img</span>&gt;</span></code> tag.</p>
+            <p>In the near future there are plans to add support for subscriber emotes and also have an option to apply a custom class to each injected <code><span class="hljs-tag">&lt;<span class="hljs-title">img</span>&gt;</span></code> tag.</p>
           </div>
         </div>
       </div>
@@ -186,6 +217,13 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <script src="js/kappa.js"></script>
+
+  <script>
+    $(function() {
+      $('.kappa').kappa();
+    });
+  </script>
 
   </body>
 </html>
