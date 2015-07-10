@@ -37,7 +37,15 @@
 
     .kappa img {
       display: inline-block;
-      margin-bottom: -13px;
+      margin-bottom: -8px;
+    }
+
+    code {
+      color: #673AB7;
+    }
+
+    pre, p code {
+      background-color: rgba(40, 50, 56, 0.05);
     }
   </style>
 </head>
@@ -60,32 +68,32 @@
 
   <div class="container">
     <div class="section">
-        <div class="row">
-          <div class="col s6">
-            <h3>Without Kappa.js</h3>
-            <div class="card-panel">
-              <span>
-                Kappa BibleThump HeyGuys Kreygasm
-              </span>
-            </div>
-          </div>
-
-          <div class="col s6">
-            <h3>With Kappa.js</h3>
-            <div class="card-panel">
-              <span class="kappa">
-                Kappa BibleThump HeyGuys Kreygasm
-              </span>
-            </div>
+      <div class="row">
+        <div class="col s12 m6 l6">
+          <h3 class="flow-text">Without Kappa.js</h3>
+          <div class="card-panel">
+            <span>
+              "HeyGuys why do you hate me BibleThump! I thought I was meme worthy Kappa. I enjoy the memes Kreygasm"
+            </span>
           </div>
         </div>
+
+        <div class="col s12 m6 l6">
+          <h3 class="flow-text">With Kappa.js</h3>
+          <div class="card-panel">
+            <span class="kappa">
+              "HeyGuys why do you hate me BibleThump! I thought I was meme worthy Kappa. I enjoy the memes Kreygasm"
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="section">
 
       <!--   Icon Section   -->
       <div class="row">
-        <div class="col s3">
+        <div id="toc-wrapper" class="col m3 l3 hide-on-small-only">
           <ul class="section table-of-contents">
             <li><a href="#how-does-this-work">How does this work?</a></li>
             <li><a href="#how-do-i-get-this">How do I get this?</a></li>
@@ -94,12 +102,12 @@
             <li><a href="#whats-next">What's next?</a></li>
           </ul>
         </div>
-        <div class="col s9">
+        <div class="col s12 m9 l9 right">
           <div id="how-does-this-work" class="section scrollspy">
             <h3>How does this work?</h3>
             <p>Kappa.js is made possible with the use of
               <a class="deep-purple-text" href="https://twitchemotes.com/apidocs">Twitch Emotes API v2</a>.
-              Kappa.js will pull a fresh list of global emotes on each browser
+              Kappa.js will pull a fresh list of <b>global emotes</b> on each browser
               session. Please note this API is currently in development, so
               features and structure may change without warning.</p>
           </div>
@@ -108,7 +116,7 @@
             <h3>How do I get this?</h3>
             <p>Kappa.js can be quickly installed from the public bower registry. Just run...</p>
             <pre><code>bower install kappa.js</code></pre>
-            <p>Alternaticely, you can simple clone down the repository with...</p>
+            <p>Alternatively, you can simple clone down the repository with...</p>
             <pre><code>git clone https://github.com/SimulatedGREG/Kappa.js.git</code></pre>
             <p>
               And for those of you who have no idea what was said above, you can get a direct download <a class="deep-purple-text" href="#">here</a>.
@@ -176,34 +184,16 @@
         <div class="col l6 s12">
           <h5 class="white-text">About</h5>
           <p class="grey-text text-lighten-4">Kappa.js was originaly built for use on StreamQuotes.com, where users can submit, like, and share quotes within the Twitch/gaming community. Since its first release, Kappa.js has evolved to include more features and options for better customization.</p>
-
+        </div>
+        <div class="col l6 s12">
           <h5 class="white-text">Credits</h5>
           <p class="grey-text text-lighten-4">
             <a class="deep-purple-text" href="https://twitchemotes.com/apidocs">Twitch Emotes API v2</a><br>
             Emote and badge images are property of <a class="deep-purple-text" href="http://www.twitch.tv">Twitch Interactive</a> and their respective owners.
           </p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
         </div>
       </div>
+
     </div>
     <div class="footer-copyright">
       <div class="container">
@@ -217,11 +207,12 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/kappa.js"></script>
+  <script src="js/kappa.min.js"></script>
 
   <script>
     $(function() {
       $('.kappa').kappa();
+      $('.table-of-contents').pushpin({ top: $('#toc-wrapper').offset().top });
     });
   </script>
 
