@@ -46,20 +46,35 @@
    * Initialize jQuery Plugin
    * @return {this} DOM element
    */
-  $.fn.kappa = function () {
+  $.fn.kappa = function (settings) {
     var _this = this;
 
+    /**
+     * Define default plugin configuration
+     * @param  {String} {customClass} Custom class to added to generatated <img> tags
+     * @param  {String} {emoteSize} Template size for emotes
+     */
     var config = $.extend({
       customClass: null,
       emoteSize: 'small'
-    });
+    }, settings);
 
+    /**
+     * Generator <img> tag
+     * @param  {String} {image_id} Emote Id
+     * @return {String} Generated <img> tag
+     */
     function generateImgTag(_ref) {
       var image_id = _ref.image_id;
 
-      return ['<img src="', window.KappaJS.template[config.emoteSize].replace('{image_id}', image_id), '" alt="', emote, '">'].join('');
+      return ['<img src="', window.KappaJS.template[config.emoteSize].replace('{image_id}', image_id), '" ', config.customClass === null ? '' : 'class="' + config.customClass + '" ', 'alt="', emote, '">'].join('');
     }
 
+    /**
+     * Loop through all emoteSize
+     * Find known emotes using RegExp
+     * Replace with generated <img> tag
+     */
     for (var emote in window.KappaJS.emotes) {
       if (window.KappaJS.emotes.hasOwnProperty(emote)) {
 
