@@ -26,7 +26,7 @@
    */
   function getTwitchEmotesPromise(res, rej) {
     $.get('https://twitchemotes.com/api_cache/v2/global.json', function (data) {
-      if (previousStorage === null) window.localStorage.setItem('kappa-js', JSON.stringify(data));
+      if (typeof Storage !== 'undefined') window.localStorage.setItem('kappa-js', JSON.stringify(data));
 
       res(data);
     });
@@ -47,12 +47,26 @@
    * @return {this} DOM element
    */
   $.fn.kappa = function () {
+    var _this = this;
 
     var config = $.extend({
-      emoteSize: 'small',
-      customClass: null
+      customClass: null,
+      emoteSize: 'small'
     });
 
-    return undefined;
+    function generateImgTag(_ref) {
+      var image_id = _ref.image_id;
+
+      return ['<img src="', window.KappaJS.template[config.emoteSize].replace('{image_id}', image_id), '" alt="', emote, '">'].join('');
+    }
+
+    for (var emote in window.KappaJS.emotes) {
+      if (window.KappaJS.emotes.hasOwnProperty(emote)) {
+
+        $(this).each(function () {
+          $(_this).html($(_this).html().replace(new RegExp('\\b' + emote + '\\b', 'g'), generateImgTag(window.KappaJS.emotes[emote])));
+        });
+      }
+    }
   };
 })(jQuery);
