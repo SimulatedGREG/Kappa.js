@@ -47,7 +47,12 @@
    * @return {this} DOM element
    */
   $.fn.kappa = function (settings) {
-    var _this = this;
+
+    /**
+     * Hoist `this`
+     * Needed if KappaJS is not ready
+     */
+    var self = this;
 
     /**
      * Define default plugin configuration
@@ -64,10 +69,23 @@
      * @param  {String} {image_id} Emote Id
      * @return {String} Generated <img> tag
      */
-    function generateImgTag(_ref) {
+    function generateImgTag(_ref, name) {
       var image_id = _ref.image_id;
 
-      return ['<img src="', window.KappaJS.template[config.emoteSize].replace('{image_id}', image_id), '" ', config.customClass === null ? '' : 'class="' + config.customClass + '" ', 'alt="', emote, '">'].join('');
+      return ['<img src="', KappaJS.template[config.emoteSize].replace('{image_id}', image_id), '" ', config.customClass === null ? '' : 'class="' + config.customClass + '" ', 'alt="', name, '">'].join('');
+    }
+
+    /**
+     * Wait for KappaJS to be attached to window
+     * Replace text with emotes once attached
+     */
+    function waitKappaJS() {
+      var watch = setInterval(function () {
+        if (typeof window.KappaJS !== 'undefined') {
+          replaceTextWithEmotes();
+          clearInterval(watch);
+        }
+      }, 500);
     }
 
     /**
@@ -75,13 +93,24 @@
      * Find known emotes using RegExp
      * Replace with generated <img> tag
      */
-    for (var emote in window.KappaJS.emotes) {
-      if (window.KappaJS.emotes.hasOwnProperty(emote)) {
+    function replaceTextWithEmotes() {
 
-        $(this).each(function () {
-          $(_this).html($(_this).html().replace(new RegExp('\\b' + emote + '\\b', 'g'), generateImgTag(window.KappaJS.emotes[emote])));
-        });
+      for (var emote in KappaJS.emotes) {
+        if (KappaJS.emotes.hasOwnProperty(emote)) {
+          $(self).each(function () {
+            $(self).html($(self).html().replace(new RegExp('\\b' + emote + '\\b', 'g'), generateImgTag(KappaJS.emotes[emote], emote)));
+          });
+        }
       }
     }
+
+    /**
+     * Check for KappaJS
+     * Start watcher if not ready
+     * Replace if ready
+     */
+    if (typeof window.KappaJS === 'undefined') {
+      waitKappaJS();
+    } else replaceTextWithEmotes();
   };
 })(jQuery);

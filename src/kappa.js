@@ -51,6 +51,12 @@
   $.fn.kappa = function(settings) {
 
     /**
+     * Hoist `this`
+     * Needed if KappaJS is not ready
+     */
+    let self = this;
+
+    /**
      * Define default plugin configuration
      * @param  {String} {customClass} Custom class to added to generatated <img> tags
      * @param  {String} {emoteSize} Template size for emotes
@@ -65,16 +71,29 @@
      * @param  {String} {image_id} Emote Id
      * @return {String} Generated <img> tag
      */
-    function generateImgTag({image_id}) {
+    function generateImgTag({image_id}, name) {
       return [
         '<img src="',
-        window.KappaJS.template[config.emoteSize].replace('{image_id}', image_id),
+        KappaJS.template[config.emoteSize].replace('{image_id}', image_id),
         '" ',
         (config.customClass === null) ? '' : `class="${config.customClass}" `,
         'alt="',
-        emote,
+        name,
         '">'
       ].join('');
+    }
+
+    /**
+     * Wait for KappaJS to be attached to window
+     * Replace text with emotes once attached
+     */
+    function waitKappaJS() {
+      let watch = setInterval(() => {
+        if(typeof window.KappaJS !== 'undefined') {
+          replaceTextWithEmotes();
+          clearInterval(watch);
+        }
+      }, 500);
     }
 
     /**
@@ -82,20 +101,31 @@
      * Find known emotes using RegExp
      * Replace with generated <img> tag
      */
-    for (var emote in window.KappaJS.emotes) {
-      if (window.KappaJS.emotes.hasOwnProperty(emote)) {
+    function replaceTextWithEmotes() {
 
-        $(this).each(() => {
-          $(this).html(
-            $(this).html().replace(
-              new RegExp('\\b' + emote + '\\b', 'g'),
-              generateImgTag(window.KappaJS.emotes[emote])
-            )
-          );
-        });
+      for (var emote in KappaJS.emotes) {
+        if (KappaJS.emotes.hasOwnProperty(emote)) {
+          $(self).each(() => {
+            $(self).html(
+              $(self).html().replace(
+                new RegExp('\\b' + emote + '\\b', 'g'),
+                generateImgTag(KappaJS.emotes[emote], emote)
+              )
+            );
+          });
 
+        }
       }
     }
+
+    /**
+     * Check for KappaJS
+     * Start watcher if not ready
+     * Replace if ready
+     */
+    if(typeof window.KappaJS === 'undefined') {
+      waitKappaJS();
+    } else replaceTextWithEmotes();
 
   };
 
