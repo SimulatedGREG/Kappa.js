@@ -3,7 +3,7 @@
   /**
    * Check for previous data in localStorage
    */
-  let previousStorage = window.localStorage.getItem('kappa-js');
+  let previousStorage = localStorage.getItem('kappa-js');
 
   /**
    * Initialize KappaJS
@@ -27,7 +27,7 @@
     $.get('https://twitchemotes.com/api_cache/v2/global.json',
       (data) => {
         if(typeof Storage !== 'undefined')
-          window.localStorage.setItem('kappa-js', JSON.stringify(data));
+          localStorage.setItem('kappa-js', JSON.stringify(data));
 
         res(data);
       });
@@ -41,7 +41,7 @@
     init().then((data) => {
       window.KappaJS = data;
     });
-  } else window.KappaJS = JSON.parse(window.localStorage.getItem('kappa-js'));
+  } else window.KappaJS = JSON.parse(localStorage.getItem('kappa-js'));
 
 
   /**

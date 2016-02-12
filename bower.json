@@ -1,12 +1,12 @@
 {
   "name": "Kappa.js",
-  "version": "1.0.8",
+  "version": "2.0.0",
   "homepage": "http://simulatedgreg.github.io/kappa.js/",
   "authors": [
     "Greg Holguin <simulatedgreg@gmail.com>"
   ],
   "description": "A simple jQuery plugin that can easily find text Twitch emotes and replace them with their respective emoticons.",
-  "main": "dist/kappa.js",
+  "main": "dist/kappa.min.js",
   "keywords": [
     "kappa",
     "twitch",
