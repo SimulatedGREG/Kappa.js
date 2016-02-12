@@ -94,7 +94,6 @@
      * Replace with generated <img> tag
      */
     function replaceTextWithEmotes() {
-
       for (var emote in KappaJS.emotes) {
         if (KappaJS.emotes.hasOwnProperty(emote)) {
           $(self).each(function () {
