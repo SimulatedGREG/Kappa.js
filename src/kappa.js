@@ -105,6 +105,9 @@
       for (var emote in KappaJS.emotes) {
         if (KappaJS.emotes.hasOwnProperty(emote)) {
           $(self).each(() => {
+            // NOTE: Transpiler bug
+            // Next 2 selector should be `this`, but babel grab context of `replaceTextWithEmotes` function
+            // Manually adjusted in build until futher notice.
             $(self).html(
               $(self).html().replace(
                 new RegExp('\\b' + emote + '\\b', 'g'),
