@@ -43,6 +43,10 @@
     });
   } else window.KappaJS = JSON.parse(localStorage.getItem('kappa-js'));
 
+  /**
+   * Cache Regex
+   */
+  let twitchEmotesRegExp = new RegExp("(" + Object.keys( KappaJS.emotes ).join("|") + ")", "g");
 
   /**
    * Initialize jQuery Plugin
@@ -102,20 +106,16 @@
      * Replace with generated <img> tag
      */
     function replaceTextWithEmotes() {
-      for (var emote in KappaJS.emotes) {
-        if (KappaJS.emotes.hasOwnProperty(emote)) {
-          $(self).each((i, el) => {
-            $(el).html(
-              $(el).html().replace(
-                new RegExp('\\b' + emote + '\\b', 'g'),
-                generateImgTag(KappaJS.emotes[emote], emote)
-              )
-            );
-          });
-        }
-      }
+      $(self).each((i, el) => {
+        $(el).html(
+          $(el).html().replace(
+            twitchEmotesRegExp,
+            function(all, emote){ return generateImgTag(KappaJS.emotes[emote], emote) }
+          )
+        );
+      });
     }
-
+  
     /**
      * Check for KappaJS
      * Start watcher if not ready
