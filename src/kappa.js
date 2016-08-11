@@ -115,7 +115,7 @@
         );
       });
     }
-  
+
     /**
      * Check for KappaJS
      * Start watcher if not ready
