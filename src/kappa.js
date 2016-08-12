@@ -46,7 +46,7 @@
   /**
    * Cache Regex
    */
-  let twitchEmotesRegExp = new RegExp("(" + Object.keys( KappaJS.emotes ).join("|") + ")", "g");
+  let twitchEmotesRegExp = new RegExp("\\b(" + Object.keys( KappaJS.emotes ).join("|") + ")\\b", "g");
 
   /**
    * Initialize jQuery Plugin
