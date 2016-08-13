@@ -1,6 +1,6 @@
 [Kappa]: http://static-cdn.jtvnw.net/emoticons/v1/25/1.0
 
-# ![Kappa Emote][Kappa] Kappa.js v2.0.0
+# ![Kappa Emote][Kappa] Kappa.js v2.0.4
 Kappa.js is a simple jQuery Plugin that can easily find text Twitch emotes and replace them with their respective emoticons.  
 
 ## How does this work?
@@ -10,6 +10,10 @@ Kappa.js is made possible with the use of [Twitch Emotes API v2](http://twitchem
 Kappa.js can be quickly installed from the public bower registry. Just run...
 ```
 bower install kappa.js
+```
+Or maybe you'd prefer npm...
+```
+npm install kappa.js
 ```
 Alternatively, you can simply clone down this repository with...
 ```
