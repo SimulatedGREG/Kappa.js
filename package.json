@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/simulatedgreg/kappa.js.git"
   },
+  "scripts": {
+    "docs": "git subtree push --prefix docs origin gh-pages"
+  },
   "keywords": [
     "twitch",
     "kappa",
