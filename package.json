@@ -1,11 +1,8 @@
 {
   "name": "kappa.js",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Kappa.js is a simple jQuery Plugin that can easily find text Twitch emotes and replace them with their respective emoticons.  ",
   "main": "dist/kappa.min.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/simulatedgreg/kappa.js.git"
