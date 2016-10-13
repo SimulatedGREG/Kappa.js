@@ -1,5 +1,7 @@
 (($) => {
 
+  let twitchEmotesRegExp;
+
   /**
    * Check for previous data in localStorage
    */
@@ -42,11 +44,6 @@
       window.KappaJS = data;
     });
   } else window.KappaJS = JSON.parse(localStorage.getItem('kappa-js'));
-
-  /**
-   * Cache Regex
-   */
-  let twitchEmotesRegExp = new RegExp("\\b(" + Object.keys( KappaJS.emotes ).join("|") + ")\\b", "g");
 
   /**
    * Initialize jQuery Plugin
@@ -106,6 +103,9 @@
      * Replace with generated <img> tag
      */
     function replaceTextWithEmotes() {
+      if(typeof twitchEmotesRegExp === 'undefined')
+        twitchEmotesRegExp = new RegExp("\\b(" + Object.keys( KappaJS.emotes ).join("|") + ")\\b", "g");
+
       $(self).each((i, el) => {
         $(el).html(
           $(el).html().replace(
