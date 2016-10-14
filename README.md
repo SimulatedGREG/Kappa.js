@@ -1,6 +1,6 @@
 [Kappa]: http://static-cdn.jtvnw.net/emoticons/v1/25/1.0
 
-# ![Kappa Emote][Kappa] Kappa.js v2.0.4
+# ![Kappa Emote][Kappa] Kappa.js v2.0.5
 Kappa.js is a simple jQuery Plugin that can easily find text Twitch emotes and replace them with their respective emoticons.  
 
 ## How does this work?
