@@ -5,7 +5,11 @@
   /**
    * Check for previous data in localStorage
    */
-  let previousStorage = localStorage.getItem('kappa-js');
+  try {
+    let previousStorage = localStorage.getItem('kappa-js');
+  } catch (e) {
+    let previousStorage = null;
+  }
 
   /**
    * Initialize KappaJS
@@ -28,7 +32,7 @@
   function getTwitchEmotesPromise(res, rej) {
     $.get('https://twitchemotes.com/api_cache/v2/global.json',
       (data) => {
-        if(typeof Storage !== 'undefined')
+        if(typeof Storage !== 'undefined' && previousStorage !== null)
           localStorage.setItem('kappa-js', JSON.stringify(data));
 
         res(data);
