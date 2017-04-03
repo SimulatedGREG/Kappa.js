@@ -2,12 +2,16 @@
 
 (function ($) {
 
-  var twitchEmotesRegExp = undefined;
+  var twitchEmotesRegExp = void 0;
 
   /**
    * Check for previous data in localStorage
    */
-  var previousStorage = localStorage.getItem('kappa-js');
+  try {
+    var _previousStorage = localStorage.getItem('kappa-js');
+  } catch (e) {
+    var _previousStorage2 = null;
+  }
 
   /**
    * Initialize KappaJS
@@ -28,7 +32,7 @@
    */
   function getTwitchEmotesPromise(res, rej) {
     $.get('https://twitchemotes.com/api_cache/v2/global.json', function (data) {
-      if (typeof Storage !== 'undefined') localStorage.setItem('kappa-js', JSON.stringify(data));
+      if (typeof Storage !== 'undefined' && previousStorage !== null) localStorage.setItem('kappa-js', JSON.stringify(data));
 
       res(data);
     });
